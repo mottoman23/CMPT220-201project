@@ -31,32 +31,31 @@ public class Connector {
 		if (conn != null) {
 			System.out.println("Connection is not null.");
 		}
-		//createTable(conn);
+		// createTable(conn);
 	}
 
 	public static void createTable(Connection conn) {
-		 Statement stmt = null;
-		 ResultSet rs = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 
-		 try {
-		     stmt = (Statement) conn.createStatement();
-		     stmt.executeUpdate("CREATE TABLE Persons (\r\n" + 
-		     		"id INT(5) AUTO_INCREMENT PRIMARY KEY,\r\n" + 
-		     		"name VARCHAR(50) NOT NULL,\r\n" + 
-		     		"gender CHAR(1),\r\n" + 
-		     		"salary DECIMAL(10, 2),\r\n" + 
-		     		"hasHealthInsurance CHAR(1),\r\n" + 
-		     		"age INT(3),\r\n" + 
-		     		"homeCity VARCHAR(50),\r\n" + 
-		     		"homeState VARCHAR(50))");
-	
-		     // Now do something with the ResultSet ....
-		 }
-		 catch (SQLException ex){
-		     // handle any errors
-		     System.out.println("SQLException: " + ex.getMessage());
-		     System.out.println("SQLState: " + ex.getSQLState());
-		     System.out.println("VendorError: " + ex.getErrorCode());
-		 }
+		try {
+			stmt = (Statement) conn.createStatement();
+			stmt.executeUpdate("CREATE TABLE Persons (\r\n" + "id INT(5) AUTO_INCREMENT PRIMARY KEY,\r\n"
+					+ "name VARCHAR(50) NOT NULL,\r\n" + "gender CHAR(1),\r\n" + "salary DECIMAL(10, 2),\r\n"
+					+ "hasHealthInsurance CHAR(1),\r\n" + "age INT(3),\r\n" + "homeCity VARCHAR(50),\r\n"
+					+ "homeState VARCHAR(50))");
+
+			// Now do something with the ResultSet ....
+		} catch (SQLException ex) {
+			// handle any errors
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		}
 	}
+
+	public static void insertCompany(Company c, Connection conn) {
+		// String sql = "INSERT INTO Company VALUES (c.compName, c."
+	}
+
 }
