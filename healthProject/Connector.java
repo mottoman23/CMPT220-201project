@@ -55,7 +55,13 @@ public class Connector {
 	}
 
 	public static void insertCompany(Company c, Connection conn) {
-		// String sql = "INSERT INTO Company VALUES (c.compName, c."
+		String sql = ("INSERT INTO Company (CompanyName, CompanyBudget, AmountOfClients, OfficeLocation, AmountOfEmployees"
+				+ "VALUES (c.compName, c.compBudget, c.clientNum, c.officeLoc, c.employeeNum)");
+	}
+	
+	public static void insertPerson(Person p, Connection conn) {
+		String sql = ("INSERT INTO Person (PersonName, Gender, YearlySalary, HasHealthInsurance, Age, HomeCity, HomeState"
+				+ "VALUES (p.personName, p.gender, p.salary, p.hasHealthInsurance, p.age, p.homeCity, p.homeState)");
 	}
 
 }

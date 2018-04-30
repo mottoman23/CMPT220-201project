@@ -10,6 +10,7 @@ public class Driver {
 		switch(cmd) {
 			case "P" :
 				System.out.println("You are creating a new person.");
+				createPerson();
 				break;
 			case "C" :
 				System.out.println("You are creating a new company.");
@@ -37,4 +38,23 @@ public class Driver {
 		
 		Company c = new Company(compName, compBudget, clientNum, officeLoc, employeeNum);
 	}
-}
+		
+		public static void createPerson() {
+			System.out.println("Please enter your name.");
+			String personName = sc.nextLine();
+			System.out.println("Please enter your gender (true for male/false for female).");
+			boolean gender = sc.nextBoolean();
+			System.out.println("Please enter your yearly salary.");
+			double salary = sc.nextDouble();
+			System.out.println("You have health insurance; true or false?");
+			boolean hasHealthInsurance = sc.nextBoolean();
+			System.out.println("Please enter your age.");
+			int age = sc.nextInt();
+			System.out.println("Please enter your home city.");
+			String homeCity = sc.nextLine();
+			System.out.println("Please enter your home state."); //something's wrong here
+			String homeState = sc.nextLine();
+			
+			Person p = new Person(personName, gender, salary, hasHealthInsurance, age, homeCity, homeState);
+		}
+	}
