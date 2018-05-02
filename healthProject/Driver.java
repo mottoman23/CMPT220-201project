@@ -32,11 +32,13 @@ public class Driver {
 		System.out.println("Please enter the number of clients your company has.");
 		int clientNum = sc.nextInt();
 		System.out.println("Please enter the office location of your company.");
+		sc.nextLine();
 		String officeLoc = sc.nextLine();
 		System.out.println("Please enter the number of employees your company has.");
 		int employeeNum = sc.nextInt();
 		
 		Company c = new Company(compName, compBudget, clientNum, officeLoc, employeeNum);
+		Connector.insertCompany(c);
 	}
 		
 		public static void createPerson() {
@@ -47,14 +49,12 @@ public class Driver {
 			System.out.println("Please enter your yearly salary.");
 			double salary = sc.nextDouble();
 			System.out.println("You have health insurance; true or false?");
+			sc.nextLine();
 			boolean hasHealthInsurance = sc.nextBoolean();
 			System.out.println("Please enter your age.");
 			int age = sc.nextInt();
-			System.out.println("Please enter your home city.");
-			String homeCity = sc.nextLine();
-			System.out.println("Please enter your home state."); //something's wrong here
-			String homeState = sc.nextLine();
 			
-			Person p = new Person(personName, gender, salary, hasHealthInsurance, age, homeCity, homeState);
+			Person p = new Person(personName, gender, salary, hasHealthInsurance, age);
+			Connector.insertPerson(p);
 		}
 	}
